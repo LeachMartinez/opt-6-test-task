@@ -1,1 +1,3 @@
-document.querySelector(".container").innerHTML = `123`;
+// главный "Входной" файл
+import "./scss/app.scss";
+import "./js/main";

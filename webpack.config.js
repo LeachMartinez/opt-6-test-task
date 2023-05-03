@@ -1,16 +1,36 @@
-// webpack.config.js
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const miniCss = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-      main: path.resolve(__dirname, './src/index.js'),
-  },
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js',
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+     rules: [{
+        test:/\.(s*)css$/,
+        use: [
+           miniCss.loader,
+           'css-loader',
+           'sass-loader',
+        ]
+     }]
   },
   plugins: [
-    new CleanWebpackPlugin(),
-],
-}
+    new miniCss({
+      filename: 'style.css',
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery"
+    })
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 3005,
+  },
+};
