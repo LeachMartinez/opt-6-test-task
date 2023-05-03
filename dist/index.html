@@ -6,7 +6,63 @@
    </head>
    
    <body>
-      <button>Добавить </button>
+      <h1>Проведение ТО и мелкий ремонт</h1>
+
+      <ul>
+        <li>Общее</li>
+        <li>Товар списания</li>
+        <li>Доп. расходы</li>
+      </ul>
+
+      <div>
+        <button id="addRow">Добавить строку</button>
+      </div>
+
+      <div>
+        <div>
+          <button id="settings">настройки</button>
+          <div>
+            <table id="myTable" class="display">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Номер</th>
+                  <th>Действие</th>
+                  <th>Наименование еденицы</th>
+                 <!-- <th>Цена</th>
+                  <th>Кол-во</th>
+                  <th>Название товара</th>
+                  <th>Итого</th>
+                  <th>Наименование еденицы</th>
+                  <th>Цена доставки, руб</th>
+                  <th>Max грузоподъемность, кг</th> -->
+                </tr> 
+              </thead>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <span>Сумма:</span>
+              <span>152 212 руб</span>
+            </div>
+            <div>
+              <span>Кол-во:</span>
+              <span>24 шт</span>
+            </div>
+            <div>
+              <span>Общий вес:</span>
+              <span>2 322 кг</span>
+            </div>
+          </div>
+
+          <div>
+            <span>Общая сумма:</span>
+            <span>152 212 руб</span>
+          </div>
+        </div>
+      </div>
       <script src="bundle.js"></script>
    </body>
 </html>
