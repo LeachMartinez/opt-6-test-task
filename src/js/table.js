@@ -1,18 +1,19 @@
 import DataTable from 'datatables.net-dt';
 import 'datatables.net-rowreorder';
+import 'datatables.net-colreorder';
 class Table {
 
   constructor(tableNodeId) {
     this.dataTable = new DataTable( tableNodeId, {
-    "bPaginate": false,
-    "bInfo": false,
-    "searching": false,
+    bPaginate: false,
+    bInfo: false,
+    searching: false,
+    colReorder: true,
     rowReorder: {
       selector: '.rowId'
     },
     columnDefs: [{
       targets: 0,
-      visible: false
     }]
    });
   }
@@ -20,7 +21,7 @@ class Table {
   count = 1;
 
   addRow(data) {
-    this.dataTable.row.add([this.#createIdBlock(), this.#createIdBlock(),...data]).draw(false);
+    this.dataTable.row.add([this.#createIdBlock(),...data]).draw(false);
     this.count++;
   }
 
